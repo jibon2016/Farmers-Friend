@@ -1,0 +1,471 @@
+ body {
+  /*background: #599fd9;*/
+  /*background-image: linear-gradient( 135.9deg,  rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1% );*/
+  min-height: 100vh;
+  /*overflow: hidden;*/
+}
+
+ .vertical-nav {
+  min-width: 14rem;
+  width: 14rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+  margin-top:55px;
+}
+.page-content {
+  width: calc(100% - 14rem);
+  margin-left: 14rem;
+  transition: all 0.4s;
+} 
+
+#sidebar.active {
+  margin-left: -14rem;
+}
+
+#content.active {
+  width: 100%;
+  margin: 0;
+}
+
+.separator {
+  margin: 3rem 0;
+  border-bottom: 1px dashed #fff;
+}
+
+.text-uppercase {
+  letter-spacing: 0.1em;
+}
+.text-gray {
+  color: #aaa;
+}
+.nav-link{
+    text-transform: capitalize;
+}
+.nav-link:hover{
+    background:#f3f2f2;
+}
+.text-primary{
+    color:#7579e7 !important;
+}
+
+nav.navbar.navbar-expand-lg.sticky-top{
+   padding-right: 0px;
+
+}
+
+nav{
+   width: 100%;
+   height: 55px;
+   background: #4E9F3D !important;/*FFD66B*/
+}
+
+.toggle__btn{
+   width: 16%;
+}
+
+.toggle__btn{
+}
+
+.toggle__btn i {
+   background: transparent;
+   font-size: 20px;
+   margin: 0;
+   float: left;
+   padding: 10px 10px;
+}
+
+.toggle__btn i:hover {
+   cursor: pointer;
+   background: #1C7947;
+   border-radius: 10%;
+}
+
+.logo h3{
+   margin: 0;
+   font-size: 24px;
+   float: left;
+   color: #fff;
+   padding: 0px 20px;
+   line-height: 35px;
+}
+
+
+#without_logo{
+   margin: 0px;
+   padding: 0px;
+   width:53%;
+}
+
+.search_input{
+   padding: 5px 0px;
+   border-radius: 5px;
+   border:1px solid #ddd;
+   padding-left: 10px;
+}
+.search_input:focus{
+   outline: none !important;
+    border:1px solid #ddd;
+    box-shadow: 0 0 10px #719ECE;
+    padding-left: 10px;
+}
+
+
+input[type="text"]::placeholder{
+
+}
+/*----------------------For To Go Button-------------------*/
+
+.to-go{
+   width: 10%;
+   border-right: 1px solid #8E9775;
+  text-align: center;
+}
+.dropbtn {
+  background-color: #4E9F3D;
+  color: white;
+  padding: 15px 12px;
+  font-size: 16px;
+  border: none;
+  display: block;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.fa-home{
+   padding: 0px 5px;
+}
+
+.fa-chevron-down{
+   padding: 0px 10px;
+}
+
+.dropdown-content {
+ display: none;
+ position: absolute;
+ background-color: #f1f1f1;
+ min-width: 267px;
+ left: -140px;
+ box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+ z-index: 1;
+ text-align: left;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+/*------------------------Help CSS--------------------*/
+
+.help{
+   width: 7%;
+   border-right: 1px solid #8E9775;
+   padding: 15px 10px;
+   cursor: pointer;
+   color: #fff;
+   text-align: center;
+}
+
+.help i{
+   padding-right: 5px;
+   font-weight: 700;
+}
+
+
+.help h3{
+   display: inline-block;
+   font-size: 16px;
+   margin: 0px;
+}
+
+
+/*------------------------Language CSS--------------------*/
+.language{
+   width: 7%;
+   border-right: 1px solid #8E9775;
+   padding: 15px 10px;
+   cursor: pointer;
+   color: #fff;
+   text-align: center;
+}
+
+.language h3{
+   display: inline-block;
+   font-size: 15px;
+   margin: 0px;
+}
+
+
+/*------------------------Sign-Up CSS--------------------*/
+
+
+.sign-up {
+    width: 7%;
+    background: #FF865E !important;
+    display: inline-table;
+    margin: 0;
+    padding-top: 1px;
+    cursor: pointer;
+   color: #fff;
+   font-weight: bold;
+}
+
+
+.sign-up a{
+  padding: 15px 0px;
+  font-size: 16px;
+  border: none;
+  text-align: center;
+  display: block;
+}
+
+/*------------------------Main Content CSS--------------------*/
+.main-content{
+   margin: 0px;
+   padding: 0px;
+
+}
+
+.banner{
+  height: 350px;
+   text-align: center;
+}
+
+.banner_input{
+  margin: auto;
+    width: 70%;
+}
+
+.img{
+  background-image: url('../img/banner.jpg');
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.banner-content{
+  padding-top: 100px;
+}
+.banner-content h3{
+  font-weight: bold;
+  padding: 20px;
+}
+.form-control:focus {
+  box-shadow: none;
+}
+
+.row {
+  margin:0px;
+}
+
+.mini-banner{
+  padding: 25px;
+  width: 100%;
+  height: 350px;
+  background:#fff;
+}
+
+.mini-b-full {
+    width: 80%;
+    margin: auto;
+    padding-left: 46px;
+}
+
+.single-img{
+  padding: 0px 10px;
+  float: left;
+  width: 50%;
+}
+
+.single-img img{
+  height: 300px;
+  width: 380px;
+}
+
+/*----------------------------- Category CSS--------------------------*/
+
+.main-category{
+  width: 100%;
+  background: #fff;
+}
+
+.category-heading h2{
+  padding: 20px 0px;
+  font-size: 24px;
+}
+
+.product{
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 20px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.product-name{
+
+}
+.product-icon{
+  float: right;
+  padding-top: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----------------------------Responsive CSS----------------------------------*/
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) 
+{ 
+
+
+
+}
+
+
+ /*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) 
+{
+
+  
+#sidebar {
+    margin-left: -14rem;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+  #content {
+    width: 100%;
+    margin: 0;
+  }
+  #content.active {
+    margin-left: 14rem;
+    width: calc(100% - 14rem);
+  }
+
+  .toggle__btn{
+   float: left;
+   width: 30%;
+}
+
+#without_logo{
+   float: left;
+   margin: 0px;
+   padding: 0px;
+   width:50%;
+   display: inline-block;
+}
+
+.dropbtn {
+   float: left;
+   display: block;
+   margin: 0;
+   padding: 0;
+}
+
+
+}
+
+ /*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) 
+{
+
+nav.navbar.navbar-expand-lg.sticky-top{
+
+   display: inline-block;
+   margin: 0;
+   padding: 0;
+
+}
+
+nav{
+   width: 100%;
+   height: 55px;
+   background: #4E9F3D !important;/*FFD66B*/
+}
+
+.toggle__btn{
+   float: left;
+   width: 27%;
+   padding: 10px 10px;
+}
+
+#without_logo{
+   float: left;
+   margin: 0px;
+   padding: 10px 10px;
+   width:53%;
+   display: inline-block;
+}
+
+.dropbtn {
+}
+
+.dropdown-content {
+ display: none;
+ position: absolute;
+ background-color: #f1f1f1;
+ min-width: 267px;
+ left: -125px;
+ box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+ z-index: 1;
+}
+
+
+}
+
+ /*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) 
+{
+
+
+}
+
+ /*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) 
+{
+
+
+}
