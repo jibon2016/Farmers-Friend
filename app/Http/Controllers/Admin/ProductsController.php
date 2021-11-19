@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Model\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
-class HomeController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $this->data['products'] = Product::all();
+
+        return view('admin.product', $this->data );
     }
 
     /**
@@ -23,7 +28,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.from');
     }
 
     /**
@@ -34,7 +39,20 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        return "This is in middleware";
+        $frmdata = $request->all();
+
+        if ($image = $request->file('picture')) {
+            $destinationPath = 'Product_image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $frmdata['picture'] = "$profileImage";
+        }
+
+        if ( Product::create($frmdata)){
+            Session::flash('success_message', 'Product Created Successfully');
+        };
+        return redirect()->route('products.index');
+        
     }
 
     /**
