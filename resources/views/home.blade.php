@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Fermer Friend</title>
+    <title>কৃষকবন্ধু</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
@@ -19,7 +19,7 @@
           <i class="fas fa-bars"></i>
         </div>
         <div class="logo">
-          <h3>Your Logo</h3>
+          <h3>কৃষকবন্ধু</h3>
         </div>
        </div>
        <div id="without_logo">
@@ -59,56 +59,52 @@
     <!-- Vertical navbar -->
     <div class="vertical-nav bg-white" id="sidebar">
       <ul class="nav flex-column bg-white mb-0">
-        <li class="nav-item">
+      <li class="nav-item">
           <a href="#" class="nav-link text-dark bg-light">
               <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
-              home
+              ধান
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link text-dark">
             <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-            about
+            চাল
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link text-dark">
             <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-            services
+            ডাল
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link text-dark">
             <i class="fas fa-images mr-3 text-primary fa-fw"></i>
-            Gallery
-          </a>
-        </li>
-      </ul>
-
-      <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Charts</p>
-      <ul class="nav flex-column bg-white mb-0">
-        <li class="nav-item">
-          <a href="#" class="nav-link text-dark">
-            <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
-            area charts
+            সবজি
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link text-dark">
-            <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
-            bar charts
+            <i class="fas fa-images mr-3 text-primary fa-fw"></i>
+            শাক
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link text-dark">
-            <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
-            pie charts
+            <i class="fas fa-images mr-3 text-primary fa-fw"></i>
+            মশলা
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link text-dark">
-            <i class="fa fa-line-chart mr-3 text-primary fa-fw"></i>
-            line charts
+            <i class="fas fa-images mr-3 text-primary fa-fw"></i>
+            ফল
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link text-dark">
+            <i class="fas fa-images mr-3 text-primary fa-fw"></i>
+            অন্যান্য
           </a>
         </li>
       </ul>
@@ -156,7 +152,7 @@
                 <div class="col-lg-4 col-md-4 text-center">
                   <div class="product">
                     <div class="product-name">
-                      ফল ও শাকসবজি
+                    ধান
                       <i class=" product-icon fas fa-apple-alt"></i>
                     </div>
                   </div>
@@ -164,7 +160,7 @@
                 <div class="col-lg-4 col-md-4 text-center">
                   <div class="product ">
                     <div class="product-name text-center">
-                      মাছ ও মাংস   পানীয়
+                    চাল
                       <i class=" product-icon fas fa-fish"></i>
                     </div>
                   </div>
@@ -172,7 +168,7 @@
                 <div class="col-lg-4 col-md-4 text-center">
                   <div class="product">
                     <div class="product-name">
-                      পানীয়
+                    ডাল
                       <i class=" product-icon fas fa-wine-glass-alt"></i>
                     </div>
                   </div>
@@ -180,7 +176,7 @@
                 <div class="col-lg-4 col-md-4 text-center">
                   <div class="product">
                     <div class="product-name">
-                      ফল ও শাকসবজি
+                      সবজি
                       <i class=" product-icon fas fa-apple-alt"></i>
                     </div>
                   </div>
@@ -188,7 +184,7 @@
                 <div class="col-lg-4 col-md-4 text-center">
                   <div class="product ">
                     <div class="product-name text-center">
-                      মাছ ও মাংস   পানীয়
+                      শাক
                       <i class=" product-icon fas fa-fish"></i>
                     </div>
                   </div>
@@ -196,7 +192,7 @@
                 <div class="col-lg-4 col-md-4 text-center">
                   <div class="product">
                     <div class="product-name">
-                      পানীয়
+                      মশলা
                       <i class=" product-icon fas fa-wine-glass-alt"></i>
                     </div>
                   </div>
@@ -204,7 +200,7 @@
                 <div class="col-lg-4 col-md-4 text-center">
                   <div class="product">
                     <div class="product-name">
-                      ফল ও শাকসবজি
+                      ফল
                       <i class=" product-icon fas fa-apple-alt"></i>
                     </div>
                   </div>
@@ -212,40 +208,8 @@
                 <div class="col-lg-4 col-md-4 text-center">
                   <div class="product ">
                     <div class="product-name text-center">
-                      মাছ ও মাংস   পানীয়
+                      অন্যান্য
                       <i class=" product-icon fas fa-fish"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-4 text-center">
-                  <div class="product">
-                    <div class="product-name">
-                      পানীয়
-                      <i class=" product-icon fas fa-wine-glass-alt"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-4 text-center">
-                  <div class="product">
-                    <div class="product-name">
-                      ফল ও শাকসবজি
-                      <i class=" product-icon fas fa-apple-alt"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-4 text-center">
-                  <div class="product ">
-                    <div class="product-name text-center">
-                      মাছ ও মাংস   পানীয়
-                      <i class=" product-icon fas fa-fish"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-4 text-center">
-                  <div class="product">
-                    <div class="product-name">
-                      পানীয়
-                      <i class=" product-icon fas fa-wine-glass-alt"></i>
                     </div>
                   </div>
                 </div>
@@ -258,7 +222,7 @@
   <!-- End demo content -->
   </div>
 
-<!-- Modal -->
+<!-- Modal For Login -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content ">
@@ -290,9 +254,9 @@
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="registerMedal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<!-- Modal For Register -->
+<div class="modal fade bd-example-modal-lg" id="registerMedal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header text-center">
           <h5 class="modal-title" id="registerMedal">Register</h5>
@@ -302,28 +266,61 @@
         </div>
         <div class="modal-body px-5">
           <form>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Name/Email:</label>
-              <input type="text" class="form-control" id="recipient-name">
+            <div class="form-group row py-3">
+              <label for="inputEmail3" class="col-sm-3 col-form-label">Name/Email:</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="Your Name/Email">
+              </div>
             </div>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Phone Number:</label>
-              <input type="Number" class="form-control" id="recipient-name">
+            <div class="form-group row py-3">
+              <label for="inputEmail3" class="col-sm-3 col-form-label">Phone Number:</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control" id="inputEmail3" placeholder="Your Phone Number">
+              </div>
             </div>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Password:</label>
-              <input type="password" class="form-control" id="recipient-name">
+            <div class="form-group row py-3">
+              <label for="inputEmail3" class="col-sm-3 col-form-label">Password:</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="inputEmail3" placeholder="Password">
+              </div>
             </div>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Confirm Password:</label>
-              <input type="password" class="form-control" id="recipient-name">
+            <div class="form-group row py-3">
+              <label for="inputEmail3" class="col-sm-3 col-form-label">Confirm Password:</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="inputEmail3" placeholder="Confirm Password">
+              </div>
             </div>
+            <div class="form-group row py-3">
+              <label for="inputEmail3" class="col-sm-3 col-form-label">Location(District):</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="inputEmail3" placeholder="Your District">
+              </div>
+            </div>
+            <div class="form-group row py-3">
+              <label for="inputEmail3" class="col-sm-3 col-form-label">User Type:</label>
+              <div class="col-sm-9">
+                <div class="form-group">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                      <option selected>Type</option>
+                      <option value="Saller">Seller</option>
+                      <option value="Buyer">Buyer</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            
           </form>
         </div>
         <div class="modal-footer px-5">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" data-dismiss="modal">Log in</button>
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Register</button>
+          <button type="button" class="btn btn-success" >Register</button>
         </div>
       </div>
     </div>
