@@ -20,10 +20,6 @@ Route::group(['middleware' => 'auth'],function (){
 
   Route::get('dashboard',  [DashboardController::class, 'index'])->name('dashboard');
 
-  Route::get('products',               [ProductsController::class, 'index'])->name('products.index');
-  Route::get('products/create',        [ProductsController::class, 'create'])->name('products.create');
-  Route::post('products',              [ProductsController::class, 'store'])->name('products.store');
-
-  // Route::resource('products', ProductsController::class);
+  Route::resource('products', Admin\ProductsController::class);
 
 });

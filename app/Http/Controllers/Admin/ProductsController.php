@@ -17,8 +17,8 @@ class ProductsController extends Controller
     public function index()
     {
         $this->data['products'] = Product::all();
-
-        return view('admin.product', $this->data );
+        toastr()->success('Data has been saved successfully!');
+        return view('admin.products.product', $this->data );
     }
 
     /**
@@ -28,7 +28,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('admin.from');
+        return view('admin.products.from');
     }
 
     /**
