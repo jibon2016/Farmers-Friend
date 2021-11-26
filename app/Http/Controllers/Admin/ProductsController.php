@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
+use App\Model\Category;
 use App\Model\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -16,6 +18,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
+        
         $this->data['products'] = Product::all();
         toastr()->success('Data has been saved successfully!');
         return view('admin.products.product', $this->data );
@@ -28,7 +31,10 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('admin.products.from');
+        $this->data['category'] = Category::all();
+        $this->data['mode']     = 'create';
+        $this->data['headline'] = 'Add New Product';
+        return view('admin.products.from', $this->data );
     }
 
     /**
@@ -37,7 +43,7 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $frmdata = $request->all();
 
@@ -49,7 +55,7 @@ class ProductsController extends Controller
         }
 
         if ( Product::create($frmdata)){
-            Session::flash('success_message', 'Product Created Successfully');
+            toastr()->success('Product has been saved successfully!');
         };
         return redirect()->route('products.index');
         
@@ -63,7 +69,8 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+        $this->data['product'] = Product::find($id); 
+        return view('admin.products.show', $this->data );
     }
 
     /**
@@ -74,7 +81,13 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $this->data['product']      = Product::findOrFail($id);
+        $this->data['category']     = Category::all();
+        $this->data['mode']         = 'edit';
+        $this->data['headline']     = 'Update Product Information';
+    
+        return view('admin.products.from', $this->data);
     }
 
     /**
@@ -86,7 +99,28 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $product = Product::find($id);
+        if ($image = $request->file('picture')) {
+            $destinationPath = 'Product_image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $frmdata['picture'] = "$profileImage";
+            $product->picture           = $frmdata['picture'];
+        }
+   
+        $product->category_id       = $data['category_id'];
+        $product->title             = $data['title'];
+        $product->description       = $data['description'];
+        $product->cost_price        = $data['cost_price'];
+
+        if (  $product->save()){
+            toastr()->success('Product has been updated successfully!');
+        }else{
+            toastr()->success('Nothing to Update');
+        }
+        return redirect()->to('products');
     }
 
     /**
@@ -97,6 +131,9 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Product::destroy($id)){
+            toastr()->warning('Products deleted successfully');
+        };
+        return redirect()->to('products');
     }
 }

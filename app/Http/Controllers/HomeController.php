@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -80,5 +81,12 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function products()
+    {
+        $this->data['products'] = Product::all();
+        return view('products', $this->data );
     }
 }

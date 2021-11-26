@@ -8,9 +8,9 @@
         <div class="col-md-6">
           <h1 class="mt-4">Products</h1>
         </div>
-          <div class=" mt-4 col-md-6 text-right" style="text-align: right;">
-              <a href="{{ route('products.create')}}" class="btn btn-info"><i class="fa fa-plus"></i> New Product</a>
-          </div>
+        <div class=" mt-4 col-md-6 text-right" style="text-align: right;">
+            <a href="{{ route('products.create')}}" class="btn btn-info"><i class="fa fa-plus"></i> New Product</a>
+        </div>
       </div>
       <div class="card mb-4">
         <div class="card-body">
@@ -35,14 +35,14 @@
                       <td>{{ $product->cost_price }}</td>
                       <td><img width="40" height="40" src="Product_image/{{ $product->picture}}" alt=""></td>
                       <td class="text-right">
-                          <form method="POST" action="">
-                              @csrf
-                              @method('DELETE')
-                              <a class="btn btn-primary btn-sm" href=""><i class="fa fa-eye"></i></a>
-                              <a class="btn btn-primary btn-sm" href=""><i class="fa fa-edit"></i></a>
-                              <button onclick="return confirm('Are you Sure?')" type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                          </form>
-                      </td>
+                        <form method="POST" action="{{ route('products.destroy', ['product' =>$product->id]) }}">
+                            @csrf
+                            @method('DELETE')
+                            <a class="btn btn-primary btn-sm" href="{{ route('products.show',['product' => $product->id]) }}"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-primary btn-sm" href="{{ route('products.edit',['product' => $product->id]) }}"><i class="fa fa-edit"></i></a>
+                            <button onclick="return confirm('Are you Sure?')" type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                        </form>
+                    </td>
                   </tr>
               @endforeach
             </tbody>
