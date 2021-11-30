@@ -84,13 +84,16 @@ nav{
    border-radius: 10%;
 }
 
-.logo h3{
+.logo h3 {
    margin: 0;
-   font-size: 24px;
    float: left;
-   color: #fff;
    padding: 0px 20px;
-   line-height: 35px;
+}
+.logo a {
+  text-decoration: none;
+  font-size: 24px;
+  color: #fff;
+  line-height: 35px;
 }
 
 
@@ -310,43 +313,44 @@ input[type="text"]::placeholder{
   padding: 20px 0px;
   font-size: 24px;
 }
-
-.product{
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  padding: 20px;
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-.product-name{
-
-}
-.product-icon{
-  float: right;
-  padding-top: 3px;
+.product-top img{
+  width: 100%;
+  height: 250px;
 }
 
-.overlay{
-  z-index: 11111;
+.product-bottom {
+  padding: 15px 0px;
 }
 
-.single-product{
-  z-index: -1;
+.product-bottom h3{
+  font-size: 24px;
+  font-weight: 500;
+  padding-bottom: 5px;
 }
 
+.product-bottom h5{
+  font-size: 15px;
+  font-weight: normal;
+}
 
-.overlay:hover{
+.overlay {
+  display: none;
+  position: absolute;
+  top: 4%;
+  margin-right: 20px;
+  color: #fff;
+  padding: 100px 70px;
   background: rgba(0, 0, 0, 0.3);
+  width: 93%;
+  height: 250px;
 }
 
-.single-product img:hover{
-  
+.product-top:hover .overlay{
+  display: block;
+  opacity: 1;
+  transition: 0.5s;
+  cursor: pointer;
 }
-
-
-
-
-
 
 
 

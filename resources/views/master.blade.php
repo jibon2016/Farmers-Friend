@@ -19,7 +19,7 @@
           <i class="fas fa-bars"></i>
         </div>
         <div class="logo">
-          <h3>কৃষকবন্ধু</h3>
+          <h3><a href="{{ route('home') }}">কৃষকবন্ধু</a></h3>
         </div>
        </div>
        <div id="without_logo">
@@ -60,7 +60,7 @@
     <div class="vertical-nav bg-white" id="sidebar">
       <ul class="nav flex-column bg-white mb-0">
       <li class="nav-item">
-          <a href="#" class="nav-link text-dark bg-light">
+          <a href="{{ route('productall') }}" class="nav-link text-dark bg-light">
               <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
               ধান
           </a>

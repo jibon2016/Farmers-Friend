@@ -1,25 +1,27 @@
 @extends('master')
 @section('main-content')
 <div class="page-content" id="content">
-  <div class="card-deck p-4">
-    <div class="row ">
-    @foreach ($products as $product)
-    <div class="col-md-3  py-2">
-      <div class="overlay">
-        <div class="card single-product">
-          <a href="#"><img height="200" src="{{ asset('Product_image').'/'.$product->picture }}" class="card-img-top" alt="..."></a>
-          <div class="card-body">
-            <h5 class="card-title">{{$product->title }}</h5>
-            <p class="text-center">{{ $product->cost_price.'.00'}} </p>
-            {{-- <p class="card-text">{{ substr($product->description, 0,  100) }}</p> --}}
+    <div class="row">
+      @foreach ($products as $product)
+        <div class="col-md-3  py-3">
+          <div class="product-top">
+            <img src="{{ asset('').'Product_image/'. $product->picture}}" alt="">
+            <a href="www.google.com">
+              <div class="overlay">
+                <h2>বিস্তারিত দেখুন>></h2>
+              </div>
+            </a>
+            <div class="product-bottom text-center">
+              <h3>{{ $product->title }}</h3>
+              <h5>${{ $product->cost_price }}</h5>
+            </div>
+            <div class="order-btn">
+              <button class="btn btn-block btn-success">Order</button>
+            </div>
           </div>
+
         </div>
-      </div>
-      <div class="card-footer">
-        <button class="btn btn-block">Order</button>
-      </div>
-    </div>
-    @endforeach
+      @endforeach
     </div>
   </div>
 </div>
