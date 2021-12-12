@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Category;
 use App\Model\Product;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $this->data['categories'] = Category::all();
+        return view('home', $this->data);
     }
 
     /**
@@ -86,7 +88,8 @@ class HomeController extends Controller
 
     public function products()
     {
-        $this->data['products'] = Product::all();
+        $this->data['products']     = Product::all();
+        $this->data['categories']   = Category::all();
         return view('products', $this->data );
     }
 }

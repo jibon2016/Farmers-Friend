@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->foreignId('category_id');
             $table->string('title');
             $table->text('description')->nullable();
+            $table->text('tags');
             $table->double('cost_price')->nullable();
             $table->string('picture');
             $table->timestamps();

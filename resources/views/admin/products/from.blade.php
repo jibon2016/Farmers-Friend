@@ -42,7 +42,7 @@
                           <label for="description" class="col-sm-3 text-right col-form-label">Description</label>
                           <div class="col-sm-8">
                             @if ($mode == 'edit')
-                             <textarea name="description" class="form-control" id="" cols="30" rows="5">{{ $product->description }}</textarea>
+                              <textarea name="description" class="form-control" id="" cols="30" rows="5">{{ $product->description }}</textarea>
                             @else
                               <textarea name="description" class="form-control" id="" cols="30" rows="5">{{ old('description') }}</textarea>
                             @endif
@@ -64,6 +64,22 @@
                             </select>
                           </div>
                       </div>
+                      <div class="form-group row py-3">
+                        <label for="tags" class="col-sm-3 text-right col-form-label">Tags<span class="text-danger">*</span></label>
+                        <div class="col-sm-8">
+                          @if ($mode == 'edit')
+                            <input type="number" name="tags" value="{{ $product->tags}}" class="form-control" placeholder="Product Price">
+                          @else
+                          <div class="tag-input" data-name="tags">
+                            {{-- <span class="tag">CSS <span class="close"></span></span>
+                            <span class="tag">HTML <span class="close"></span></span>
+                            <span class="tag">JavaScript <span class="close"></span></span>
+                            <input class="main-input" type="text"value="{{ old("tags")}}"  placeholder="Tags">
+                            <input type="hidden" name="tags"> --}}
+                          </div>
+                          @endif
+                        </div>
+                    </div>
                       <div class="form-group row py-3">
                           <label for="cost_price" class="col-sm-3 text-right col-form-label">Cost Price <span class="text-danger">*</span></label>
                           <div class="col-sm-8">

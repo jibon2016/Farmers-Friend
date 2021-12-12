@@ -109,7 +109,7 @@ class ProductsController extends Controller
             $frmdata['picture'] = "$profileImage";
             $product->picture           = $frmdata['picture'];
         }
-   
+        
         $product->category_id       = $data['category_id'];
         $product->title             = $data['title'];
         $product->description       = $data['description'];

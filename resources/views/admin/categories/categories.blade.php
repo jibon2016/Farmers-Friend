@@ -19,6 +19,7 @@
               <tr>
                 <th>ID</th>
                 <th>Title</th>
+                <th>Icon</th>
                 <th class="text-right">Action</th>
             </tr>
             </thead>
@@ -28,6 +29,7 @@
               <tr>
                 <td>{{ $id++ }}</td>
                 <td>{{ $category->title }}</td>
+                <td><i class="fa {{ $category->category_icon }}"></i></td>
                 <td class="text-right">
                   <form method="POST" action="{{ route('categories.destroy', ['category' =>$category->id]) }}">
                       @csrf

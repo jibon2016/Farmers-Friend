@@ -36,70 +36,16 @@
       </div>
       <div class="container pb-5">
         <div class="row justify-content-start">
+          @foreach ($categories as $category )
             <div class="col-lg-4 col-md-4 text-center">
               <div class="product">
                 <div class="product-name">
-                ধান
-                  <i class=" product-icon fas fa-apple-alt"></i>
+                {{ $category->title}}
+                  <i class=" product-icon {{ $category->category_icon }}"></i>
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 text-center">
-              <div class="product ">
-                <div class="product-name text-center">
-                চাল
-                  <i class=" product-icon fas fa-fish"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 text-center">
-              <div class="product">
-                <div class="product-name">
-                ডাল
-                  <i class=" product-icon fas fa-wine-glass-alt"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 text-center">
-              <div class="product">
-                <div class="product-name">
-                  সবজি
-                  <i class=" product-icon fas fa-apple-alt"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 text-center">
-              <div class="product ">
-                <div class="product-name text-center">
-                  শাক
-                  <i class=" product-icon fas fa-fish"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 text-center">
-              <div class="product">
-                <div class="product-name">
-                  মশলা
-                  <i class=" product-icon fas fa-wine-glass-alt"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 text-center">
-              <div class="product">
-                <div class="product-name">
-                  ফল
-                  <i class=" product-icon fas fa-apple-alt"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 text-center">
-              <div class="product ">
-                <div class="product-name text-center">
-                  অন্যান্য
-                  <i class=" product-icon fas fa-fish"></i>
-                </div>
-              </div>
-            </div>
+          @endforeach
           </div>
         </div>
       </div>  

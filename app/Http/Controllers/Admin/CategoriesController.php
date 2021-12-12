@@ -84,7 +84,8 @@ class CategoriesController extends Controller
         $frmdata = $request->all();
         $category = Category::find($id);
 
-        $category->title = $frmdata['title'];
+        $category->title            = $frmdata['title'];
+        $category->category_icon    = $frmdata['category_icon'];
 
         if ($category->save()) {
             toastr()->success('Category has been Updated successfully!');

@@ -11699,3 +11699,43 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+/* -----------------My CSS------------------ */
+.tag-input{
+  border: 1px solid #ced4da !important;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.tag-input .tag{
+  font-size: 85%;
+  padding: 0.5em 0.75em;
+  margin: 0.15em 0.1em;
+  display: inline-block;
+  background-color: #ddd;
+  transition: all 0.1s linear;
+  cursor: pointer;
+}
+
+.tag-input .tag:hover{
+  background-color: #3af;
+  color: white;
+}
+
+.tag-input .tag .close::after{
+  content: 'x';
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 0.50em;
+  transform: scale(1.2);
+}
+
+.tag-input .tag .close:hover::after{
+  color: red;
+}
+
+.tag-input .main-input{
+  border: 0;
+  outline: 0;
+  padding: 0.35em 0.55em;
+}

@@ -35,6 +35,19 @@
                             @endif
                           </div>
                       </div>
+                      <div class="form-group row py-4">
+                        <label for="category_icon" class="col-sm-3 text-right col-form-label">Category Icon <span class="text-danger">*</span></label>
+                        <div class="col-sm-5">
+                          @if ($mode == 'edit')
+                            <input type="text"  id="icon" onchange="readIcon()" name="category_icon" value="{{$category->category_icon}}" class="form-control" placeholder="Category Title">
+                          @else
+                            <input type="text" id="icon" onchange="readIcon()" name="category_icon" value="" class="form-control" placeholder="Category Icon">
+                          @endif
+                        </div>
+                        <div class="col-sm-3 text-center">
+                          <i id="showIcon" class="fa"></i>
+                        </div>
+                    </div>
                       <div class="form-group row">
                           <label for="" class="col-sm-1 text-right col-form-label"></label>
                           <div class="col-sm-5 mt-3" >
@@ -49,4 +62,22 @@
     </div>
   </main>
 </div>
+@section('js')
+<script type="text/javascript">
+  function readIcon() {
+    var iconValue = document.getElementById("icon").value;
+    var element = document.getElementById("icon");
+
+    const myArray = iconValue.split(" ")
+  
+    document.getElementById("showIcon").classList.add(...myArray);
+  
+    // var arrowIcon = document.createElement("i");
+    // arrowIcon.classList.add(iconValue);
+    // document.getElementById("showIcon").appendChild(arrowIcon);
+  
+    console.log(myArray);
+  }
+  </script>
+@endsection
 @endsection

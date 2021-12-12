@@ -4,17 +4,20 @@
     <meta charset="utf-8">
     <title>কৃষকবন্ধু</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <!-- CSS only -->
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" >
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
 <body>
   <div class="waraper">
-   <!--  Navbar Start -->
+  <!--  Navbar Start -->
     <nav class="navbar navbar-expand-lg sticky-top">
-          <!-- Toggle button -->
-       <div class="toggle__btn">
+    <!-- Toggle button -->
+      <div class="toggle__btn">
         <div id="sidebarCollapse">
           <i class="fas fa-bars"></i>
         </div>
@@ -59,54 +62,14 @@
     <!-- Vertical navbar -->
     <div class="vertical-nav bg-white" id="sidebar">
       <ul class="nav flex-column bg-white mb-0">
-      <li class="nav-item">
-          <a href="{{ route('productall') }}" class="nav-link text-dark bg-light">
-              <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
-              ধান
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link text-dark">
-            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-            চাল
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link text-dark">
-            <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-            ডাল
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link text-dark">
-            <i class="fas fa-images mr-3 text-primary fa-fw"></i>
-            সবজি
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link text-dark">
-            <i class="fas fa-images mr-3 text-primary fa-fw"></i>
-            শাক
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link text-dark">
-            <i class="fas fa-images mr-3 text-primary fa-fw"></i>
-            মশলা
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link text-dark">
-            <i class="fas fa-images mr-3 text-primary fa-fw"></i>
-            ফল
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link text-dark">
-            <i class="fas fa-images mr-3 text-primary fa-fw"></i>
-            অন্যান্য
-          </a>
-        </li>
+        @foreach ($categories as $category )
+          <li class="nav-item">
+            <a href="{{ route('productall') }}" class="nav-link text-dark bg-light">
+              <i class="fa {{ $category->category_icon }} mr-3 text-primary fa-fw"></i>
+              {{ $category->title }}
+            </a>
+          </li>
+        @endforeach
       </ul>
     </div>
     <!-- End vertical navbar -->
@@ -158,7 +121,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body px-5">
+        <div class="modal-body px-3 py-0">
           <form>
             <div class="form-group row py-3">
               <label for="inputEmail3" class="col-sm-3 col-form-label">Name/Email:</label>
@@ -207,8 +170,6 @@
                 </div>
               </div>
             </div>
-          
-            
           </form>
         </div>
         <div class="modal-footer px-5">
@@ -222,9 +183,9 @@
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="{{ asset('assets/js/jquery-3.3.1.slim.min.js')}}" ></script>
+<script src="{{ asset('assets/js/popper.min.js')}}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
 <script src="{{ asset('assets/js/index.js')}}"></script>
 </body>
 </html>
