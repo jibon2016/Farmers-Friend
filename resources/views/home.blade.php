@@ -1,6 +1,5 @@
 @extends('master')
 @section('main-content')
-<div class="page-content" id="content">
   <div class="main-content">
     <div class="banner">
       <div class="img">
@@ -8,7 +7,7 @@
           <h3>আপনার পন্য খুজুন এখানে</h3>
           <form class="banner_input border">
             <div class="input-group ">
-              <input type="text" class="form-control  border-0" placeholder="পণ্য খুঁজুন (যেমন: পেঁয়াজ, চাল, আলু)" >
+              <input type="text" class="form-control  border-0" id="inputSearch" placeholder="পণ্য খুঁজুন (যেমন: পেঁয়াজ, চাল, আলু)" >
               <div class="input-group-append">
                 <button class="btn bg-transparent" type="button">
                   <i class="fas fa-search"></i>
@@ -51,5 +50,4 @@
       </div>  
     </div>
   </div>
-</div>
 @endsection

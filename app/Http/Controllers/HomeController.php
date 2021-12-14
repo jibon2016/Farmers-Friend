@@ -86,10 +86,5 @@ class HomeController extends Controller
     }
 
 
-    public function products()
-    {
-        $this->data['products']     = Product::all();
-        $this->data['categories']   = Category::all();
-        return view('products', $this->data );
-    }
+    
 }

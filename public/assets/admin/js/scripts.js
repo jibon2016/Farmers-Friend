@@ -31,6 +31,9 @@ window.addEventListener('DOMContentLoaded', event => {
         mainInput = document.createElement('input'),
         tags = [];
 
+    let editValue = document.querySelector("#edit").value;
+     
+
         hiddenInput.setAttribute('type','hidden');
         hiddenInput.setAttribute('name', el.getAttribute('data-name'));
 
@@ -57,6 +60,13 @@ window.addEventListener('DOMContentLoaded', event => {
 
         el.appendChild(mainInput);
         el.appendChild(hiddenInput);
+
+        if(document.getElementById("myid").classList.contains("edit")){
+            let editArr = editValue.split(',');
+            editArr.forEach(function(t){
+                addTag(t);
+            });
+        }
 
         function addTag(text){
             let tag ={

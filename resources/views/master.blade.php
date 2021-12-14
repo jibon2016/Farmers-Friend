@@ -10,6 +10,8 @@
     {{-- <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -26,9 +28,9 @@
         </div>
        </div>
        <div id="without_logo">
-        <form>
+        <form autocomplete="off">
           <div class="input-group">
-            <input type="text" class="form-control search_input" placeholder="পণ্য খুঁজুন (যেমন: পেঁয়াজ, চাল, আলু)">
+            <input type="text" class="form-control search_input" id="topSearchbox" placeholder="পণ্য খুঁজুন (যেমন: পেঁয়াজ, চাল, আলু)">
             <div class="input-group-append">
               <button class="btn" type="button">
                 <i class="fas fa-search"></i>
@@ -75,7 +77,11 @@
     <!-- End vertical navbar -->
 
     <!-- Page content holder -->
-    @yield('main-content')
+    <div class="page-content dynamic-row" id="content">
+      {{-- <div class="row" id=""> --}}
+        @yield('main-content')
+      {{-- </div> --}}
+    </div>
   <!-- End demo content -->
   </div>
 
@@ -183,7 +189,7 @@
 </div>
 
 
-<script src="{{ asset('assets/js/jquery-3.3.1.slim.min.js')}}" ></script>
+{{-- <script src="{{ asset('assets/js/jquery-3.3.1.slim.min.js')}}" ></script> --}}
 <script src="{{ asset('assets/js/popper.min.js')}}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
 <script src="{{ asset('assets/js/index.js')}}"></script>

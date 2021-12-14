@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2021 at 06:22 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.7
+-- Generation Time: Dec 12, 2021 at 05:17 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -38,11 +39,15 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `title`, `created_at`, `updated_at`) VALUES
-(1, 'Rice ', NULL, NULL),
-(2, 'Vegetable', NULL, NULL),
-(3, 'Rice ', NULL, NULL),
-(4, 'Vegetable', NULL, NULL);
+INSERT INTO `categories` (`id`, `title`, `category_icon`, `created_at`, `updated_at`) VALUES
+(1, 'ধান', 'fab fa-500px', NULL, '2021-12-04 08:43:26'),
+(2, 'চাল', 'far fa-address-card', NULL, '2021-12-04 08:44:03'),
+(3, 'ডাল', 'fab fa-blackberry', NULL, '2021-12-04 08:48:18'),
+(4, 'সবজি', 'fas fa-seedling', NULL, '2021-12-04 08:45:27'),
+(7, 'শাক', 'fas fa-bars', '2021-12-03 13:05:01', '2021-12-04 07:41:03'),
+(8, 'মশলা', 'fas fa-bars', '2021-12-04 07:41:37', '2021-12-04 07:41:37'),
+(9, 'ফল', 'fas fa-apple-alt', '2021-12-04 07:41:59', '2021-12-04 08:44:39'),
+(10, 'অন্যান্য', 'fas fa-bars', '2021-12-04 07:42:11', '2021-12-04 07:42:11');
 
 -- --------------------------------------------------------
 
@@ -106,6 +111,7 @@ CREATE TABLE `products` (
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cost_price` double DEFAULT NULL,
+  `tags` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `picture` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -115,16 +121,16 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `category_id`, `title`, `description`, `cost_price`, `picture`, `created_at`, `updated_at`) VALUES
-(2, 4, 'Rice', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 2000, '20211119150330.jpg', '2021-11-19 09:03:30', '2021-11-26 08:11:19'),
-(3, 1, 'Rice', 'Rice', 2000, '20211119150534.jpg', '2021-11-19 09:05:34', '2021-11-19 09:05:34'),
-(4, 4, 'Rice', 'Rice', 2001, '20211119150557.jpg', '2021-11-19 09:05:57', '2021-11-26 10:44:51'),
-(5, 1, 'asdfasd', 'asdfasdf', 56464, '20211119150644.jpg', '2021-11-19 09:06:44', '2021-11-19 09:06:44'),
-(9, 2, 'asdfasdf', 'asdfasdfa', 234, '20211121182846.jpg', '2021-11-21 12:28:46', '2021-11-21 12:28:46'),
-(10, 2, 'asdfasdfasd', 'fasdfasdfa', 354345, '20211122151312.jpg', '2021-11-22 09:13:12', '2021-11-22 09:13:12'),
-(11, 1, 'Chal', 'Chal', 45345, '20211122151816.jpg', '2021-11-22 09:18:16', '2021-11-22 09:18:16'),
-(12, 1, 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 2554, '20211126164620.png', '2021-11-26 10:46:20', '2021-11-26 10:46:20'),
-(13, 2, 'Potato', 'Potato', 25000, '20211130171840.jpg', '2021-11-30 11:18:40', '2021-11-30 11:18:40');
+INSERT INTO `products` (`id`, `category_id`, `title`, `description`, `cost_price`, `tags`, `picture`, `created_at`, `updated_at`) VALUES
+(2, 4, 'Rice', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 2000, '', '20211119150330.jpg', '2021-11-19 09:03:30', '2021-11-26 08:11:19'),
+(3, 1, 'Rice', 'Rice', 2000, '', '20211119150534.jpg', '2021-11-19 09:05:34', '2021-11-19 09:05:34'),
+(4, 4, 'Rice', 'Rice', 2001, '', '20211119150557.jpg', '2021-11-19 09:05:57', '2021-11-26 10:44:51'),
+(5, 1, 'asdfasd', 'asdfasdf', 56464, '', '20211119150644.jpg', '2021-11-19 09:06:44', '2021-11-19 09:06:44'),
+(9, 2, 'asdfasdf', 'asdfasdfa', 234, '', '20211121182846.jpg', '2021-11-21 12:28:46', '2021-11-21 12:28:46'),
+(10, 2, 'asdfasdfasd', 'fasdfasdfa', 354345, '', '20211122151312.jpg', '2021-11-22 09:13:12', '2021-11-22 09:13:12'),
+(11, 1, 'Chal', 'Chal', 45345, '', '20211122151816.jpg', '2021-11-22 09:18:16', '2021-11-22 09:18:16'),
+(12, 1, 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 2554, '', '20211126164620.png', '2021-11-26 10:46:20', '2021-11-26 10:46:20'),
+(13, 2, 'Potato', 'Potato', 25000, '', '20211130171840.jpg', '2021-11-30 11:18:40', '2021-11-30 11:18:40');
 
 -- --------------------------------------------------------
 
@@ -199,7 +205,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`

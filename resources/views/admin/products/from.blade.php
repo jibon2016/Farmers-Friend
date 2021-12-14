@@ -7,6 +7,9 @@
       <div class="card shadow mb-4">
           <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">{{ $headline }}</h6>
+              <div class=" text-right" style="text-align: right;">
+                <a href="{{ route('products.index') }}" class="btn btn-info"><i class="fas fa-arrow-left"></i>Back</a>
+            </div>
           </div>
           @if ($errors->any())
             <div class="alert alert-danger">
@@ -68,7 +71,9 @@
                         <label for="tags" class="col-sm-3 text-right col-form-label">Tags<span class="text-danger">*</span></label>
                         <div class="col-sm-8">
                           @if ($mode == 'edit')
-                            <input type="number" name="tags" value="{{ $product->tags}}" class="form-control" placeholder="Product Price">
+                          <div class="tag-input edit" id="myid" data-name="tags">
+                              <input type="hidden" id="edit" value="{{ $product->tags }}">
+                          </div>
                           @else
                           <div class="tag-input" data-name="tags">
                             {{-- <span class="tag">CSS <span class="close"></span></span>

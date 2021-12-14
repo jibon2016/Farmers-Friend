@@ -366,9 +366,9 @@ input[type="text"]::placeholder{
   top: 4%;
   margin-right: 20px;
   color: #fff;
-  padding: 80px 70px;
+  padding: 100px 70px;
   background: rgba(0, 0, 0, 0.3);
-  width: 90%;
+  width: 93%;
   height: 250px;
 }
 

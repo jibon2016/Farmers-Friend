@@ -112,6 +112,7 @@ class ProductsController extends Controller
         
         $product->category_id       = $data['category_id'];
         $product->title             = $data['title'];
+        $product->tags              = $data['tags'];
         $product->description       = $data['description'];
         $product->cost_price        = $data['cost_price'];
 
