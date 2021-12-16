@@ -1,3 +1,4 @@
+// const { keyBy } = require("lodash");
 
 
 
@@ -6,6 +7,23 @@ $(function() {
     $('#sidebar, #content').toggleClass('active');
   });
 });
+
+
+$('#inputSearch').on('keydown',function(){
+  $inputKey = $(this).val();
+  // if ($inputKey.length > 0) {
+    var target = document.getElementById('topSearchbox');
+        target.focus();
+        target.select();
+  // }
+  console.log($inputKey);
+});
+
+
+
+
+
+
 
 $.ajaxSetup({
   headers:{
@@ -16,14 +34,6 @@ $.ajaxSetup({
 $('#topSearchbox').on('keyup',function(){
   $inputSearch = $(this).val();
 
-//   if($(this).val().length > 0){
-//     window.location.href = 'productall';
-//     $($topSearchbox).value = document.cookie;
-//     var $target = document.getElementById(#topSearchbox);
-//     $target.focus();
-//     $target.select();
-// }
-
   $.ajax({
     method: "post",
     url: "productall",
@@ -31,10 +41,6 @@ $('#topSearchbox').on('keyup',function(){
     data:{
       inputSearch : $inputSearch
     },
-    // headers:{
-    //   'Accept':'application/json',
-    //   'Content-Type':'application/json'
-    // },
     success:function(data){
       var tableRow = '';
       $(".dynamic-row").html('');
