@@ -11,35 +11,35 @@ class LoginController extends Controller
 {
 
 
-    public function index()
-    {
-        return view('admin.login');
-    }
+    // public function index()
+    // {
+    //     return view('admin.login');
+    // }
 
 
 
 
-    public function authenticate(LoginRequest $request)
-    {
-        $formData = $request->only('email','password');
+    // public function authenticate(LoginRequest $request)
+    // {
+    //     $formData = $request->only('email','password');
 
-        // $formData['password'] = Hash::make($formData['password']);
+    //     // $formData['password'] = Hash::make($formData['password']);
 
-        // return $formData;
+    //     // return $formData;
 
-        if (Auth::attempt($formData)){
-            return redirect()->route('dashboard');
-        }else{
-            return redirect()->route('login')->withErrors('Invalid Email and Password');
-        }
-    }
+    //     if (Auth::attempt($formData)){
+    //         return redirect()->route('dashboard');
+    //     }else{
+    //         return redirect()->route('login')->withErrors('Invalid Email and Password');
+    //     }
+    // }
 
 
 
-    public function logout()
-    {
-        Auth::logout();
-        return redirect()->route('login');
-    }
+    // public function logout()
+    // {
+    //     Auth::logout();
+    //     return redirect()->route('login');
+    // }
 
 }

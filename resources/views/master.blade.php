@@ -58,7 +58,18 @@
           </div>
         </div>
         <div class="sign-up" id="exampleModalLong">
-          <a type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">সাইন ইন</a>
+          @if (Auth::check())
+          <a class="dropdown-item" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+              {{ __('Logout') }}
+          </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+          @else
+            <a type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">সাইন ইন</a>
+          @endif
         </div>
     </nav>
     <!-- Vertical navbar -->
@@ -85,37 +96,42 @@
   <!-- End demo content -->
   </div>
 
-<!-- Modal For Login -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content ">
-        <div class="modal-header text-center">
-          <h5 class="modal-title" id="exampleModal">Login</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body px-5">
-          <form>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Name/Email:</label>
-              <input type="text" class="form-control" id="recipient-name">
+@if (!Auth::check())
+    <!-- Modal For Login -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content ">
+            <div class="modal-header text-center">
+              <h5 class="modal-title" id="exampleModal">Login</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Password:</label>
-              <input type="password" class="form-control" id="recipient-name">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer px-5">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#registerMedal" data-whatever="@getbootstrap">Register</button>
-          <button type="button" class="btn btn-primary">Log in</button>
+            <form autocomplete="off" method="POST" action="{{route('login')}}">
+              @csrf
+              <div class="modal-body px-5">
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Name/Email:</label>
+                  <input type="text" name="phone" class="form-control" id="recipient-name">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Password:</label>
+                  <input type="password" name="password" class="form-control" id="recipient-name">
+                </div>
+              </div>
+              <div class="modal-footer px-5">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#registerMedal" data-whatever="@getbootstrap">Register</button>
+                <button type="submit" class="btn btn-primary">Log in</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+@endif
+
+
 
 <!-- Modal For Register -->
 <div class="modal fade bd-example-modal-lg" id="registerMedal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -128,7 +144,7 @@
           </button>
         </div>
         <div class="modal-body px-3 py-0">
-          <form>
+          <form autocomplete="off">
             <div class="form-group row py-3">
               <label for="inputEmail3" class="col-sm-3 col-form-label">Name/Email:</label>
               <div class="col-sm-9">
@@ -188,6 +204,21 @@
   </div>
 </div>
 
+@if( Session::has('modal_login'))
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#exampleModal').modal();
+    });
+  </script>
+@endif
+
+@if( Session::has('modal_register'))
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#registerMedal').modal();
+    });
+  </script>
+@endif
 
 {{-- <script src="{{ asset('assets/js/jquery-3.3.1.slim.min.js')}}" ></script> --}}
 <script src="{{ asset('assets/js/popper.min.js')}}"></script>

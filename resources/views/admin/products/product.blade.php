@@ -33,7 +33,7 @@
                       <td></td>
                       <td>{{ $product->title }}</td>
                       <td>{{ $product->cost_price }}</td>
-                      <td><img width="40" height="40" src="Product_image/{{ $product->picture}}" alt=""></td>
+                      <td><img width="40" height="40" src="{{asset('Product_image'). '/'. $product->picture}}" alt=""></td>
                       <td class="text-right">
                         <form method="POST" action="{{ route('products.destroy', ['product' =>$product->id]) }}">
                             @csrf

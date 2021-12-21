@@ -33,7 +33,7 @@
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -54,7 +54,7 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('products.index') }}">Product</a>
+                                    <a class="nav-link active" href="{{ route('products.index') }}">Product</a>
                                     <a class="nav-link" href="{{ route('categories.index') }}">Category</a>
                                 </nav>
                             </div>
@@ -62,7 +62,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        {{ Auth::user()->name }}
+                        {{ Auth::guard('admin')->user()->name }}
                     </div>
                 </nav>
             </div>
