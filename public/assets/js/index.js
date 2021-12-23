@@ -60,7 +60,7 @@ $('#topSearchbox').on('keyup',function(){
           "<h5>"+ value.cost_price +"</h5>"+
         "</div>"+
         "<div class='order-btn'>"+
-          "<button class='btn btn-block btn-success'>Order</button>"+
+          "<a href='product/"+value.title +"' class='btn btn-block btn-success text-white'>Order</a>"+
         "</div>"+
       "</div>";
       $(".dynamic-row").append(tableRow);

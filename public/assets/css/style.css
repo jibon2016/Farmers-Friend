@@ -381,6 +381,53 @@ input[type="text"]::placeholder{
 }
 
 
+.product-item{
+  height: 120px;
+  box-shadow: 0 0 5px #999;
+}
+
+.product-item img{
+  float: left;
+  width: 10%;
+  height: 80px;
+}
+
+.product-item h4{
+  width: 40% ;
+  line-height: 80px;
+  padding: 0px;
+}
+
+.quantity_type{
+  width: 25%;
+  float: left;
+  padding-top: 20px;
+}
+
+.order_quatity{
+  width: 50%;
+  line-height: 80px ;
+  float: left;
+}
+.oreder_type{
+  margin-left: 5px;
+  width: 48%;
+  line-height: 80px ;
+  float: left;
+}
+
+.price-section{
+  float: left;
+  width: 25%;
+  font-size: 24px;
+  line-height: 80px;
+  padding: 0px 20px;
+}
+
+.payment-review{
+  width: 40%;
+  float: right;
+}
 
 
 

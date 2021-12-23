@@ -77,7 +77,7 @@
       <ul class="nav flex-column bg-white mb-0">
         @foreach ($categories as $category )
           <li class="nav-item">
-            <a href="{{ route('productall') }}" class="nav-link text-dark bg-light">
+            <a href="{{ route('category', ['id'=> $category->id]) }}" class="nav-link text-dark bg-light">
               <i class="fa {{ $category->category_icon }} mr-3 text-primary fa-fw"></i>
               {{ $category->title }}
             </a>

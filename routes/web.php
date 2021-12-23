@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Auth\LoginController as AuthLoginController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductSearchController;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,10 +41,11 @@ Route::group(['prefix' => 'admin'], function(){
 
 
 Route::group(['middleware' => 'auth'],function (){
+    Route::get('product/{slug}',[OrderController::class, 'index']);
 });
 
 
-Route::get('productall',[ProductSearchController::class, 'products'])->name('productall');
+Route::get('category/{id}',[CategoryController::class, 'index'])->name('category');
 Route::post('productall',[ProductSearchController::class, 'search'])->name('productall');
 
 

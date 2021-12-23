@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('user_id');
             $table->integer('quantity');
             $table->double('price')->nullable();
+            $table->string('product_type');
             $table->tinyInteger('admin_approve')->default('0');
             $table->timestamps();
         });
