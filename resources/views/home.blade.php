@@ -37,12 +37,14 @@
         <div class="row justify-content-start">
           @foreach ($categories as $category )
             <div class="col-lg-4 col-md-4 text-center">
-              <div class="product">
-                <div class="product-name">
-                {{ $category->title}}
-                  <i class=" product-icon {{ $category->category_icon }}"></i>
+              <a class="text-dark text-decoration-none" href="{{ route('category', ['id'=>$category->id]) }}">
+                <div class="product">
+                  <div class="product-name">
+                  {{ $category->title}}
+                    <i class=" product-icon {{ $category->category_icon }}"></i>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           @endforeach
           </div>

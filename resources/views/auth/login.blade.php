@@ -1,4 +1,71 @@
-@extends('layouts.app')
+@extends('master')
+@section('main-content')
+<div class="main-content mx-5 my-5">
+    @if (!Auth::check())
+    <!-- Modal For Login -->
+    <h5 class="modal-title" id="exampleModal">Login</h5>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <form autocomplete="off" method="POST" action="{{route('login')}}">
+        @csrf
+        <div class="modal-body px-5">
+            <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Name/Email:</label>
+            <input type="text" name="phone" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Password:</label>
+            <input type="password" name="password" class="form-control" id="recipient-name">
+            </div>
+        </div>
+        <div class="modal-footer px-5">
+            <a href="{{route('register')}}" class="btn btn-success text-white" >Register</a>
+            <button type="submit" class="btn btn-primary">Log in</button>
+        </div>
+        </form>
+    @endif
+  </div>
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -70,4 +137,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

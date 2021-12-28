@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = 'verify';
 
     /**
      * Create a new controller instance.
@@ -51,8 +51,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required', 'string', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', ],
+            'district' => ['required', 'string', 'max:255', ],
+            'user_type' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -64,10 +66,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $phone = '+880'.$data['phone'];
+        $code  = rand(11111,99999);
+        $nexmo = app('Nexmo\Client');
+        $nexmo->message()->send([
+            'to'   => $phone,
+            'from' => 'Fremers Friend',
+            'text' => 'OTP Code are:'. $code
+        ]);
+
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name'              => $data['name'],
+            'phone'             => '0'.$data['phone'],
+            'password'          => Hash::make($data['password']),
+            'district'          => $data['district'],
+            'user_type'         => $data['user_type'],
+            'remember_token'    => $code,
         ]);
     }
 }

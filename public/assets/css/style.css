@@ -342,7 +342,7 @@ input[type="text"]::placeholder{
 
 .product-top img{
   width: 100%;
-  height: 250px;
+  height: 200px;
 }
 
 .product-bottom {
@@ -366,10 +366,15 @@ input[type="text"]::placeholder{
   top: 4%;
   margin-right: 20px;
   color: #fff;
-  padding: 100px 70px;
+  padding: 87px 30px;
   background: rgba(0, 0, 0, 0.3);
-  width: 93%;
-  height: 250px;
+  width: 90%;
+  height: 200px;
+}
+
+
+.overlay h2 {
+  font-size: 24px;
 }
 
 
@@ -393,13 +398,13 @@ input[type="text"]::placeholder{
 }
 
 .product-item h4{
-  width: 40% ;
+  width: 30% ;
   line-height: 80px;
   padding: 0px;
 }
 
 .quantity_type{
-  width: 25%;
+  width: 35%;
   float: left;
   padding-top: 20px;
 }
@@ -425,8 +430,32 @@ input[type="text"]::placeholder{
 }
 
 .payment-review{
-  width: 40%;
-  float: right;
+  width: 45%;
+  height: max-content;
+}
+
+.payment-button{
+  width: 100%;
+}
+
+.order-sucess{
+  margin-top: 20%;
+}
+
+.order-sucess a {
+  display: block;
+  padding: 10px 80px;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 0;
+  font-size: 20px;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.order-sucess a:hover {
+  color: #fff;
+  background-color: rgb(34, 148, 39);
 }
 
 
@@ -450,6 +479,17 @@ input[type="text"]::placeholder{
 
 
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 /*-----------------------------Responsive CSS----------------------------------*/
 

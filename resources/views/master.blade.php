@@ -68,7 +68,11 @@
             @csrf
         </form>
           @else
-            <a type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">সাইন ইন</a>
+            <a type="button" @if (Route::current()->getName() != 'login')
+              @if( Route::current()->getName() != 'register' )
+              data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"
+              @endif 
+              @endif >সাইন ইন</a>
           @endif
         </div>
     </nav>
@@ -96,39 +100,49 @@
   <!-- End demo content -->
   </div>
 
-@if (!Auth::check())
-    <!-- Modal For Login -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content ">
-            <div class="modal-header text-center">
-              <h5 class="modal-title" id="exampleModal">Login</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+@if (Route::current()->getName() != 'login' || Route::current()->getName() != 'register')
+@if (!Auth::check() )
+      <!-- Modal For Login -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content ">
+              <div class="modal-header text-center">
+                <h5 class="modal-title" id="exampleModal">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              @if ($errors->any())
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+              @endif
+              <form autocomplete="off" method="POST" action="{{route('login')}}">
+                @csrf
+                <div class="modal-body px-5">
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Name/Email:</label>
+                    <input type="text" name="phone" class="form-control" id="recipient-name">
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Password:</label>
+                    <input type="password" name="password" class="form-control" id="recipient-name">
+                  </div>
+                </div>
+                <div class="modal-footer px-5">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <a type="button" href="{{ route('register') }}" class="btn btn-success text-white" >Register</a>
+                  <button type="submit" class="btn btn-primary">Log in</button>
+                </div>
+              </form>
             </div>
-            <form autocomplete="off" method="POST" action="{{route('login')}}">
-              @csrf
-              <div class="modal-body px-5">
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Name/Email:</label>
-                  <input type="text" name="phone" class="form-control" id="recipient-name">
-                </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Password:</label>
-                  <input type="password" name="password" class="form-control" id="recipient-name">
-                </div>
-              </div>
-              <div class="modal-footer px-5">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#registerMedal" data-whatever="@getbootstrap">Register</button>
-                <button type="submit" class="btn btn-primary">Log in</button>
-              </div>
-            </form>
           </div>
         </div>
       </div>
-    </div>
 @endif
 
 
@@ -143,24 +157,25 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body px-3 py-0">
-          <form autocomplete="off">
+        <form autocomplete="off" method="POST" action="{{ url('register') }}">
+          @csrf
+          <div class="modal-body px-3 py-0">
             <div class="form-group row py-3">
               <label for="inputEmail3" class="col-sm-3 col-form-label">Name/Email:</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="inputEmail3" placeholder="Your Name/Email">
+                <input type="text" name="name" class="form-control" id="inputEmail3" placeholder="Your Name/Email">
               </div>
             </div>
             <div class="form-group row py-3">
               <label for="inputEmail3" class="col-sm-3 col-form-label">Phone Number:</label>
               <div class="col-sm-9">
-                <input type="number" class="form-control" id="inputEmail3" placeholder="Your Phone Number">
+                <input type="number" name="phone" class="form-control" id="inputEmail3" placeholder="Your Phone Number">
               </div>
             </div>
             <div class="form-group row py-3">
               <label for="inputEmail3" class="col-sm-3 col-form-label">Password:</label>
               <div class="col-sm-9">
-                <input type="password" class="form-control" id="inputEmail3" placeholder="Password">
+                <input type="password" name="password" class="form-control" id="inputEmail3" placeholder="Password">
               </div>
             </div>
             <div class="form-group row py-3">
@@ -172,7 +187,7 @@
             <div class="form-group row py-3">
               <label for="inputEmail3" class="col-sm-3 col-form-label">Location(District):</label>
               <div class="col-sm-9">
-                <input type="password" class="form-control" id="inputEmail3" placeholder="Your District">
+                <input type="text" name="distirct" class="form-control" id="inputEmail3" placeholder="Your District">
               </div>
             </div>
             <div class="form-group row py-3">
@@ -183,7 +198,7 @@
                     <div class="input-group-prepend">
                       <label class="input-group-text" for="inputGroupSelect01">Options</label>
                     </div>
-                    <select class="custom-select" id="inputGroupSelect01">
+                    <select name="user_type" class="custom-select" id="inputGroupSelect01">
                       <option selected>Type</option>
                       <option value="Saller">Seller</option>
                       <option value="Buyer">Buyer</option>
@@ -192,17 +207,18 @@
                 </div>
               </div>
             </div>
-          </form>
         </div>
         <div class="modal-footer px-5">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" data-dismiss="modal">Log in</button>
-          <button type="button" class="btn btn-success" >Register</button>
+          <button type="submit" class="btn btn-success" >Register</button>
         </div>
+      </form>
       </div>
     </div>
   </div>
 </div>
+@endif
 
 @if( Session::has('modal_login'))
   <script type="text/javascript">
@@ -224,6 +240,17 @@
 <script src="{{ asset('assets/js/popper.min.js')}}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
 <script src="{{ asset('assets/js/index.js')}}"></script>
+<script>
+  (function (window, document) {
+      var loader = function () {
+          var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
+          script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7);
+          tag.parentNode.insertBefore(script, tag);
+      };
+
+      window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+  })(window, document);
+</script>
 </body>
 </html>
 

@@ -36,7 +36,7 @@ $('#topSearchbox').on('keyup',function(){
 
   $.ajax({
     method: "post",
-    url: "productall",
+    url: "/productall",
     dataType: 'json',
     data:{
       inputSearch : $inputSearch
@@ -57,10 +57,10 @@ $('#topSearchbox').on('keyup',function(){
         "</div>"+
         "<div class='product-bottom text-center'>"+
           "<h3>"+ value.title +"</h3>"+
-          "<h5>"+ value.cost_price +"</h5>"+
+          "<h5>tk."+ value.cost_price +"/-</h5>"+
         "</div>"+
         "<div class='order-btn'>"+
-          "<a href='product/"+value.title +"' class='btn btn-block btn-success text-white'>Order</a>"+
+          "<a href='/product/"+value.title +"' class='btn btn-block btn-success text-white'>Order</a>"+
         "</div>"+
       "</div>";
       $(".dynamic-row").append(tableRow);
@@ -71,3 +71,37 @@ $('#topSearchbox').on('keyup',function(){
   })
 });
 
+getTotal();
+$('.order_quatity').change(function(){
+  let orderQuantity = $(this).val();
+  let product_price = document.getElementById("cost-price").innerText;
+  let product_total = orderQuantity * product_price;
+  document.getElementById("product_total").innerText= product_total;
+  getTotal();
+});
+
+$('#inputState').on('change', function() {
+  let product_unit = this.value;
+  let product_price = document.getElementById("cost-price").innerText;
+  if (product_unit == 'mon') {
+    let product_total = product_price * 40;
+    document.getElementById("product_total").innerText= product_total;
+    getTotal();
+  }
+  if (product_unit == 'bag') {
+    let product_total = product_price * 20;
+    document.getElementById("product_total").innerText= product_total;
+    getTotal();
+  }
+
+});
+
+function getTotal(){
+  var deliveryCharge = document.getElementById("delivery_charge").innerText;
+  var product_price = document.getElementById("product_total").innerText;
+  var totalCharge = parseInt(deliveryCharge) + parseInt(product_price);
+  document.getElementById("total_charge").innerText = totalCharge;
+  document.getElementById('product_total_cost').value = product_price;
+  document.getElementById('delivery_cost').value = deliveryCharge;
+  document.getElementById('total_order_cost').value = totalCharge;
+ };

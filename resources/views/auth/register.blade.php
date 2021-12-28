@@ -1,4 +1,111 @@
-@extends('layouts.app')
+@extends('master')
+@section('main-content')
+  <div class="main-content   mx-5 my-5">
+
+    <h5 class="modal-title" id="registerMedal">Register</h5>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+    <form autocomplete="off" method="POST" action="{{ url('register') }}">
+    @csrf
+    <div class="modal-body px-3 py-0">
+    <div class="form-group row py-3">
+        <label for="inputEmail3" class="col-sm-3 col-form-label">Name/Email:</label>
+        <div class="col-sm-9">
+        <input type="text" value="{{ old('name') }}" name="name" class="form-control" id="inputEmail3" placeholder="Your Name/Email">
+        </div>
+    </div>
+    <div class="form-group row py-3">
+        <label for="inputEmail3" class="col-sm-3 col-form-label">Phone Number:</label>
+        <div class="col-sm-9">
+        <input type="number" name="phone" value="{{ old('phone') }}" class="form-control" id="inputEmail3" placeholder="Your Phone Number">
+        </div>
+    </div>
+    <div class="form-group row py-3">
+        <label for="inputEmail3" class="col-sm-3 col-form-label">Password:</label>
+        <div class="col-sm-9">
+        <input type="password" name="password" value="{{ old('password') }}" class="form-control" id="inputEmail3" placeholder="Password">
+        </div>
+    </div>
+    <div class="form-group row py-3">
+        <label for="inputEmail3" class="col-sm-3 col-form-label">Confirm Password:</label>
+        <div class="col-sm-9">
+        <input type="password" class="form-control" value="{{ old('password') }}" id="inputEmail3" placeholder="Confirm Password">
+        </div>
+    </div>
+    <div class="form-group row py-3">
+        <label for="inputEmail" class="col-sm-3 col-form-label">Location(District):</label>
+        <div class="col-sm-9">
+        <input type="text" name="district" class="form-control" value="{{ old('district') }}" id="inputEmail" placeholder="Your District">
+        </div>
+    </div>
+    <div class="form-group row py-3">
+        <label for="inputEmail3" class="col-sm-3 col-form-label">User Type:</label>
+        <div class="col-sm-9">
+        <div class="form-group">
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Options</label>
+            </div>
+            <select name="user_type" class="custom-select" id="inputGroupSelect01">
+                <option selected>Type</option>
+                <option value="Saller">Seller</option>
+                <option value="Buyer">Buyer</option>
+            </select>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="modal-footer px-5">
+        <a href="{{ route('login') }}" class="btn btn-primary text-white">Log in</a>
+        <button type="submit" class="btn btn-success" >Register</button>
+    </div>
+    </form>
+</div>
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -74,4 +181,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

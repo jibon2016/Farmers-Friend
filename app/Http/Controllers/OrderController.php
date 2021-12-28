@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Category;
+use App\Model\Product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -12,8 +13,10 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($name)
     {
+
+        $this->data['product'] = Product::where('title', '=' , $name)->first();
         $this->data['categories']  = Category::all();
         return view('order.view', $this->data);
     }
