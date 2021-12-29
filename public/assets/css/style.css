@@ -458,6 +458,73 @@ input[type="text"]::placeholder{
   background-color: rgb(34, 148, 39);
 }
 
+/* New Login Button */
+.dropbtnlogin {
+  background-color: #FF865E;
+  color: white;
+  padding: 15px 9px;
+  font-size: 16px;
+  border: none;
+  display: block;
+}
+
+.dropdownlogin {
+  position: relative;
+  display: inline-block;
+}
+
+.fa-chevron-down{
+   padding: 0px 10px;
+}
+
+.dropdown-content-login {
+ display: none;
+ position: absolute;
+ background-color: #f1f1f1;
+ min-width: 267px;
+ left: -140px;
+ box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+ z-index: 1;
+ text-align: left;
+}
+
+.dropdown-content-login a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content-login a:hover {background-color: #ddd;}
+
+.dropdownlogin:hover .dropdown-content-login {display: block;}
+
+.dropdownlogin:hover .dropbtnlogin {background-color: #FF865E;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

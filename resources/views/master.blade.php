@@ -59,11 +59,17 @@
         </div>
         <div class="sign-up" id="exampleModalLong">
           @if (Auth::check())
-          <a class="dropdown-item" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-              {{ __('Logout') }}
-          </a>
+          <div class="dropdownlogin">
+            <button class="dropbtnlogin"> {{Auth::user()->name}}<i class="fas fa-chevron-down"></i></button>
+            <div class="dropdown-content-login text-left">
+              <a class="dropdown-item" href="#">Orders</a>  
+              <a class="dropdown-item" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+              </a>
+            </div>
+          </div>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
         </form>
@@ -244,10 +250,10 @@
   (function (window, document) {
       var loader = function () {
           var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
-          script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7);
+          script.src = "https://seamless-epay.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7);
           tag.parentNode.insertBefore(script, tag);
       };
-
+  
       window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
   })(window, document);
 </script>

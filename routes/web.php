@@ -49,9 +49,9 @@ Route::group(['middleware' => 'auth'],function (){
     Route::get('product/{slug}',[OrderController::class, 'index'])->name('product.order');
 
 
-        // SSLCOMMERZ Start
+
+    // SSLCOMMERZ Start
     Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
-    // Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
     Route::post('/checkout', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
 
     Route::post('/pay', [SslCommerzPaymentController::class, 'index']);

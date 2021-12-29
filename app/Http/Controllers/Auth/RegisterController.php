@@ -50,10 +50,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', ],
-            'district' => ['required', 'string', 'max:255', ],
+            'name'      => ['required', 'string', 'max:255'],
+            'phone'     => ['required','numeric','digits:11','unique:users'],
+            'password'  => ['required', 'string', 'min:8', ],
+            'district'  => ['required', 'string', 'max:255', ],
             'user_type' => ['required', 'string', 'max:255'],
         ]);
     }
@@ -66,7 +66,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $phone = '+880'.$data['phone'];
+        $phone = '88'.$data['phone'];
         $code  = rand(11111,99999);
         $nexmo = app('Nexmo\Client');
         $nexmo->message()->send([
@@ -77,7 +77,7 @@ class RegisterController extends Controller
 
         return User::create([
             'name'              => $data['name'],
-            'phone'             => '0'.$data['phone'],
+            'phone'             => $data['phone'],
             'password'          => Hash::make($data['password']),
             'district'          => $data['district'],
             'user_type'         => $data['user_type'],
