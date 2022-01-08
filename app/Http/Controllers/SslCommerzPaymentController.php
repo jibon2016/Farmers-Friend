@@ -46,6 +46,7 @@ class SslCommerzPaymentController extends Controller
         $post_data['currency'] = "BDT";
         $post_data['quantity'] = $request->quantity;
         $post_data['product_type'] = $request->product_type;
+        $post_data['delivery_charge'] = $request->delivery_charge;
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
 
         # CUSTOMER INFORMATION
@@ -100,6 +101,7 @@ class SslCommerzPaymentController extends Controller
                 'quantity'      => $post_data['quantity'],
                 'amount'        => $post_data['total_amount'],
                 'product_type'  => $post_data['product_type'],
+                'delivery_charge'=> $post_data['delivery_charge'],
                 'currency'      => $post_data['currency'],
                 'transaction_id'=> $post_data['tran_id'],
                 'status'        => 'Pending',

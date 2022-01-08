@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Category;
 use App\Model\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -15,6 +16,10 @@ class OrderController extends Controller
      */
     public function index($name)
     {
+
+    if(Auth::user()->remember_token == NULL && Auth::user()->phone_verified_at == null ){
+        return redirect()->route('verify');
+    }
 
         $this->data['product'] = Product::where('title', '=' , $name)->first();
         $this->data['categories']  = Category::all();

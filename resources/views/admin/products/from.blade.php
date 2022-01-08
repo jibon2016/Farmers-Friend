@@ -75,13 +75,16 @@
                               <input type="hidden" id="edit" value="{{ $product->tags }}">
                           </div>
                           @else
-                          <div class="tag-input" data-name="tags">
-                            {{-- <span class="tag">CSS <span class="close"></span></span>
+                          <div class="tag-input edit" id="myid" data-name="tags">
+                            <input type="hidden" id="edit">
+                          </div>
+                          {{-- <div class="tag-input" data-name="tags">
+                            <span class="tag">CSS <span class="close"></span></span>
                             <span class="tag">HTML <span class="close"></span></span>
                             <span class="tag">JavaScript <span class="close"></span></span>
                             <input class="main-input" type="text"value="{{ old("tags")}}"  placeholder="Tags">
-                            <input type="hidden" name="tags"> --}}
-                          </div>
+                            <input type="hidden" name="tags">
+                          </div> --}}
                           @endif
                         </div>
                     </div>

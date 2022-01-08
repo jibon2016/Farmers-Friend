@@ -24,7 +24,7 @@ class ProductsController extends Controller
     {
         
         $this->data['products'] = Product::all();
-        toastr()->success('Data has been saved successfully!');
+        toastr()->success('Welcome!');
         return view('admin.products.product', $this->data );
     }
 
@@ -85,7 +85,6 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-
         $this->data['product']      = Product::findOrFail($id);
         $this->data['category']     = Category::all();
         $this->data['mode']         = 'edit';
@@ -103,6 +102,7 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
+    
         $data = $request->all();
 
         $product = Product::find($id);
@@ -125,7 +125,7 @@ class ProductsController extends Controller
         }else{
             toastr()->success('Nothing to Update');
         }
-        return redirect()->to('products');
+        return redirect()->route('products.index');
     }
 
     /**

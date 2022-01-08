@@ -3,7 +3,7 @@
 <div class="main-content mx-5 my-5">
     @if (!Auth::check())
     <!-- Modal For Login -->
-    <h5 class="modal-title" id="exampleModal">Login</h5>
+    <h5 class="modal-title py-3" id="exampleModal">Login</h5>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

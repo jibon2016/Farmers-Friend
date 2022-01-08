@@ -1,7 +1,7 @@
 @extends('master')
 @section('main-content')
   <div class="main-content">
-    <h3 class="text-center py-3">Product Order</h3>
+    <h3 class="text-center py-3">Product Offer</h3>
     <form action="{{ url('/checkout') }}" method="POST">
       @csrf
     <div class="product-item mx-5">
@@ -41,7 +41,7 @@
             </tr>
             <tr>
               <th>Delivery Charge</th>
-              <th  class="float-right">tk.<span id="delivery_charge"></span>/-</th>
+              <th  class="float-right">tk.<span id="delivery_charge">150</span>/-</th>
               <input type="hidden" name="delivery_charge" id="delivery_cost">
             </tr>
             <tr>

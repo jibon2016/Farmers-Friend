@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('district');
             $table->string('user_type');
+            $table->tinyInteger('saller_flag')->default('0');
             $table->timestamp('phone_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

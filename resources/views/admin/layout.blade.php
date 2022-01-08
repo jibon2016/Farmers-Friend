@@ -15,7 +15,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">কৃষকবন্ধু</a>
+            <a class="navbar-brand ps-3" href="{{ route('dashboard') }}">কৃষকবন্ধু</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -56,6 +56,17 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link active" href="{{ route('products.index') }}">Product</a>
                                     <a class="nav-link" href="{{ route('categories.index') }}">Category</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOrder" aria-expanded="false" aria-controls="collapseOrder">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Orders
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseOrder" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link active" href="{{ route('admin.orders') }}">Order</a>
+                                    <a class="nav-link" href="{{ route('categories.index') }}">Demand</a>
                                 </nav>
                             </div>
                         </div>

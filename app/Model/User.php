@@ -33,5 +33,8 @@ class User extends Authenticatable
      *
      * @var array
      */
+    public function isSaller() {
+        return $this->user_type === 'Saller';
+     }
     
 }

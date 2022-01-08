@@ -69,11 +69,13 @@ class RegisterController extends Controller
         $phone = '88'.$data['phone'];
         $code  = rand(11111,99999);
         $nexmo = app('Nexmo\Client');
-        $nexmo->message()->send([
-            'to'   => $phone,
-            'from' => 'Fremers Friend',
-            'text' => 'OTP Code are:'. $code
-        ]);
+        if ($data['phone'] === '0185566205') {
+            $nexmo->message()->send([
+                'to'   => $phone,
+                'from' => 'Fremers Friend',
+                'text' => 'OTP Code are:'. $code
+            ]);
+        }
 
         return User::create([
             'name'              => $data['name'],

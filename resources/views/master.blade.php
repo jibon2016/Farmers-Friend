@@ -62,7 +62,7 @@
           <div class="dropdownlogin">
             <button class="dropbtnlogin"> {{Auth::user()->name}}<i class="fas fa-chevron-down"></i></button>
             <div class="dropdown-content-login text-left">
-              <a class="dropdown-item" href="#">Orders</a>  
+              <a class="dropdown-item" href="#">Orders of <span id="userType">{{ Auth::user()->user_type }}</span></a>  
               <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
@@ -99,6 +99,15 @@
 
     <!-- Page content holder -->
     <div class="page-content dynamic-row" id="content">
+      @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
       {{-- <div class="row" id=""> --}}
         @yield('main-content')
       {{-- </div> --}}
@@ -242,6 +251,7 @@
   </script>
 @endif
 
+@yield('js')
 {{-- <script src="{{ asset('assets/js/jquery-3.3.1.slim.min.js')}}" ></script> --}}
 <script src="{{ asset('assets/js/popper.min.js')}}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>

@@ -15,7 +15,17 @@
           <h5>tk.{{ $product->cost_price }}/-</h5>
         </div>
         <div class="order-btn">
-          <a href={{ route('product.order', ['slug' => $product->title]) }} class='btn btn-block btn-success text-white'>Order</a>
+          @guest
+          <a href={{ route('login') }} class='btn btn-block btn-success text-white'>Order/Offer</a>
+          @endguest
+          @auth
+            @if (Auth::user()->user_type == 'Saller')
+            <a href={{ route('product.offer', ['slug' => $product->title]) }} class='btn btn-block btn-success text-white'>Offer</a>
+            @endif
+            @if (Auth::user()->user_type == 'Buyer')
+            <a href={{ route('product.order', ['slug' => $product->title]) }} class='btn btn-block btn-success text-white'>Order</a>
+            @endif
+          @endauth
         </div>
       </div>
     @endforeach
