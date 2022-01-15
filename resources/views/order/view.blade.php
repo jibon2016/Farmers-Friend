@@ -10,7 +10,7 @@
           <img class="float-left" src="{{ asset('Product_image').'/'.$product->picture }}" >
           <h4 class="float-left pl-4 mb-0">{{$product->title}}</h4>
           <div class="quantity_type float-left">
-            <input type="number" value="1" name="product_quantity" min="1" class="form-control order_quatity" id="inputZip" placeholder="Product Quantity">
+            <input type="number" value="1" name="product_quantity" min="1" class="form-control order_quatity" id="quantity" placeholder="Product Quantity">
             <select name="product_unit" id="inputState" class="form-control oreder_type">
               <option value="kg" selected>Product Unit</option>
               <option value="kg" >kg</option>
@@ -56,7 +56,7 @@
       </div>
     </div>
     <div class="payment-button text-center py-5">
-      <button type="submit" class="btn btn-lg px-5 btn-success">Paytment</button>
+      <button type="submit" class="btn btn-lg px-5 btn-success">Payment</button>
     </div>
   </form>
   </div>

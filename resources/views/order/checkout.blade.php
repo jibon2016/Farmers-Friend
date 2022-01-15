@@ -131,6 +131,7 @@
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                         <input type="hidden" name="delivery_charge" value="{{$delivery_charge}}">
+                        <input type="hidden" name="sub_total" value="{{$product_total}}">
                     </div>
                     <hr class="mb-4">
                     <button class="btn btn-success btn-lg btn-block" type="submit">Continue</button>

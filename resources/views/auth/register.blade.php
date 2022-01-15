@@ -56,7 +56,7 @@
             </div>
             <select name="user_type" class="custom-select" id="inputGroupSelect01">
                 <option selected>Type</option>
-                <option value="Saller">Seller</option>
+                <option value="Seller">Seller</option>
                 <option value="Buyer">Buyer</option>
             </select>
             </div>

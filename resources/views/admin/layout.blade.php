@@ -66,7 +66,18 @@
                             <div class="collapse" id="collapseOrder" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link active" href="{{ route('admin.orders') }}">Order</a>
-                                    <a class="nav-link" href="{{ route('categories.index') }}">Demand</a>
+                                    <a class="nav-link" href="{{ route('admin.demand') }}">Demand</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUsers" aria-expanded="false" aria-controls="collapseUsers">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                Users
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseUsers" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('users') }}">All Users</a>
+                                    <a class="nav-link" href="{{ route('unverified') }}">Unverified User</a>
                                 </nav>
                             </div>
                         </div>

@@ -31,11 +31,16 @@ class SmsController extends Controller
     }
 
     public function showDocument () {
-        if (Auth::user()->user_type == "Saller") {
+        if (Auth::user()->user_type == "Seller") {
             $user_id = Auth::user()->id ;
             $user = User::findOrFail($user_id);
             if ($user->saller_flag == 0) {
-            return view('auth.documentVerify');
+                $upload = UserDocument::where('user_id', $user->id);
+                if (isset($upload)) {
+                    return redirect()->back()->withErrors("Your Id is Under Review");
+                }else{
+                    return view('auth.documentVerify');
+                }
             }
             return redirect()->back()->withErrors("Your Id is Under Review");
         }else{
@@ -58,9 +63,9 @@ class SmsController extends Controller
             $frmdata['nid_img'] = "$profileImage";
         }
         if ( UserDocument::create($frmdata)){
-            $user = User::findOrFail($user_id);
-            $user->saller_flag = 1;
-            $user->save();
+            // $user = User::findOrFail($user_id);
+            // $user->saller_flag = 1;
+            // $user->save();
             return redirect()->intended();
         };
 

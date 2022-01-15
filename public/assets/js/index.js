@@ -30,7 +30,7 @@ if (typeof userType !== 'undefined') {
     var productLink = '/product/'
     var buttonOfProduct = 'Order'
     console.log(productLink)
-  } else if (userType == 'Saller') {
+  } else if (userType == 'Seller') {
     var productLink = '/product/Offer/'
     var buttonOfProduct = 'Offer'
     console.log(productLink)
@@ -90,13 +90,14 @@ $('.order_quatity').change(function () {
 $('#inputState').on('change', function () {
   let product_unit = this.value
   let product_price = document.getElementById('cost-price').innerText
+  let orderQuantity = document.getElementById('quantity').value
   if (product_unit == 'mon') {
-    let product_total = product_price * 40
+    let product_total = orderQuantity * (product_price * 40)
     document.getElementById('product_total').innerText = product_total
     getTotal()
   }
   if (product_unit == 'bag') {
-    let product_total = product_price * 20
+    let product_total = orderQuantity * (product_price * 20)
     document.getElementById('product_total').innerText = product_total
     getTotal()
   }

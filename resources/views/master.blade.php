@@ -62,7 +62,7 @@
           <div class="dropdownlogin">
             <button class="dropbtnlogin"> {{Auth::user()->name}}<i class="fas fa-chevron-down"></i></button>
             <div class="dropdown-content-login text-left">
-              <a class="dropdown-item" href="#">Orders of <span id="userType">{{ Auth::user()->user_type }}</span></a>  
+              <a class="dropdown-item" href="{{ route('user.order.offer', ['id'=>Auth::user()->id]) }}">Orders of <span id="userType">{{ Auth::user()->user_type }}</span></a>  
               <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">

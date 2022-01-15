@@ -393,6 +393,7 @@ input[type="text"]::placeholder{
   box-shadow: 0 0 5px #999;
 }
 
+
 .product-item img{
   float: left;
   width: 10%;
@@ -464,8 +465,9 @@ input[type="text"]::placeholder{
 .dropbtnlogin {
   background-color: #FF865E;
   color: white;
-  padding: 15px 9px;
-  font-size: 16px;
+  padding: 16px 0px;
+  padding-left: 5px;
+  font-size: 15px;
   border: none;
   display: block;
 }
@@ -505,6 +507,25 @@ input[type="text"]::placeholder{
 
 .sticky-top{
   position: fixed;
+}
+
+
+.order-item{
+  padding: 0px;
+  height: 60px;
+  box-shadow: 0 0 5px #999;
+  color: #000;
+}
+
+.order-heading{
+  width: 100%;
+  float: left;
+  line-height: 60px;
+}
+
+.order-item:hover{
+  color:#fff;
+  background-color: #4E9F3D;
 }
 
 

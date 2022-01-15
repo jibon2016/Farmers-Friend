@@ -19,7 +19,7 @@
           <a href={{ route('login') }} class='btn btn-block btn-success text-white'>Order/Offer</a>
           @endguest
           @auth
-            @if (Auth::user()->user_type == 'Saller')
+            @if (Auth::user()->user_type == 'Seller')
             <a href={{ route('product.offer', ['slug' => $product->title]) }} class='btn btn-block btn-success text-white'>Offer</a>
             @endif
             @if (Auth::user()->user_type == 'Buyer')

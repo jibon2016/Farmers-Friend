@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('user_id');
             $table->integer('quantity');
             $table->double('amount')->nullable();
+            $table->double('sub_total')->nullable();
             $table->double('delivery_charge');
             $table->string('product_type');
             $table->string('currency');

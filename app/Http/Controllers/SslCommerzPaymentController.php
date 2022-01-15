@@ -38,15 +38,24 @@ class SslCommerzPaymentController extends Controller
         # Here you have to receive all the order data to initate the payment.
         # Let's say, your oder transaction informations are saving in a table called "orders"
         # In "orders" table, order unique identity is "transaction_id". "status" field contain status of the transaction, "amount" is the order amount to be paid and "currency" is for storing Site Currency which will be checked with paid currency.
+        $lastorderId = Order::orderBy('id', 'desc')->first()->order_no;
 
+    // Get last 3 digits of last order id
+    $lastIncreament = substr($lastorderId, -3);
+
+    // Make a new order id with appending last increment + 1
+    $newOrderId =   date('Ymd') . str_pad($lastIncreament + 1, 3, 0, STR_PAD_LEFT);
         $post_data = array();
         $post_data['product_id'] = $request->product_id; # You cant not pay less than 10
         $post_data['user_id'] = $request->user_id; # You cant not pay less than 10
         $post_data['total_amount'] = $request->amount;
+        $post_data['sub_total'] = $request->sub_total;
         $post_data['currency'] = "BDT";
+        $post_data['payment_type'] = "";
         $post_data['quantity'] = $request->quantity;
         $post_data['product_type'] = $request->product_type;
         $post_data['delivery_charge'] = $request->delivery_charge;
+        $post_data['order_no'] = $newOrderId;
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
 
         # CUSTOMER INFORMATION
@@ -82,13 +91,7 @@ class SslCommerzPaymentController extends Controller
         $post_data['value_c'] = "ref003";
         $post_data['value_d'] = "ref004";
 
-        $lastorderId = Order::orderBy('id', 'desc')->first()->order_no;
 
-    // Get last 3 digits of last order id
-    $lastIncreament = substr($lastorderId, -3);
-
-    // Make a new order id with appending last increment + 1
-    $newOrderId =   date('Ymd') . str_pad($lastIncreament + 1, 3, 0, STR_PAD_LEFT);
 
 
         #Before  going to initiate the payment order status need to insert or update as Pending.
@@ -96,10 +99,12 @@ class SslCommerzPaymentController extends Controller
             ->where('transaction_id', $post_data['tran_id'])
             ->updateOrInsert([
                 'product_id'    => $post_data['product_id'],
+                'payment_type'    => $post_data['payment_type'],
                 'order_no'      => $newOrderId,
                 'user_id'       => $post_data['user_id'],
                 'quantity'      => $post_data['quantity'],
                 'amount'        => $post_data['total_amount'],
+                'sub_total'     => $post_data['sub_total'],
                 'product_type'  => $post_data['product_type'],
                 'delivery_charge'=> $post_data['delivery_charge'],
                 'currency'      => $post_data['currency'],
@@ -196,6 +201,7 @@ class SslCommerzPaymentController extends Controller
         $tran_id = $request->input('tran_id');
         $amount = $request->input('amount');
         $currency = $request->input('currency');
+        $this->data['tran_id'] = $tran_id;
 
         $sslc = new SslCommerzNotification();
 
@@ -215,8 +221,8 @@ class SslCommerzPaymentController extends Controller
                 */
                 $update_product = DB::table('orders')
                     ->where('transaction_id', $tran_id)
-                    ->update(['status' => 'Processing']);
-                    return view('order.sucess');
+                    ->update(['status' => 'Processing', 'payment_type' => $request->card_issuer]);
+                    return view('order.sucess', $this->data);
                     
             } else {
                 /*
@@ -230,8 +236,15 @@ class SslCommerzPaymentController extends Controller
             }
         } else if ($order_detials->status == 'Processing' || $order_detials->status == 'Complete') {
             /*
-             That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
+            That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
              */
+            // $nexmo = app('Nexmo\Client');
+            //     $nexmo->message()->send([
+            //         'to'   => '8801855669205',
+            //         'from' => 'Fremers Friend',
+            //         'text' => 'You are Successfully order a Product. Your transection id is'. $tran_id
+            //     ]);
+            
             return view('order.sucess');
         } else {
             #That means something wrong happened. You can redirect customer to your product page.
