@@ -9,7 +9,6 @@
         <h1 class="mt-4">Demands</h1>
         </div>
         <div class=" mt-4 col-md-6 text-right" style="text-align: right;">
-            <a href="{{ route('products.create')}}" class="btn btn-info"><i class="fa fa-plus"></i> New Product</a>
         </div>
       </div>
       <div class="card mb-4">
@@ -21,7 +20,7 @@
                 <th>Offer No.</th>
                 <th>User Name</th>
                 <th>Demand Price</th>
-                <th>Quantity</th>
+                <th>Is Approve</th>
                 <th>Status</th>
                 <th class="text-right">Action</th>
             </tr>
@@ -34,7 +33,7 @@
                       <td>{{ $demand->offer_no }}</td>
                       <td>{{ optional($demand->user)->name }}</td>
                       <td>{{ $demand->amount }}</td>
-                      <td>{{ $demand->quantity}}</td>
+                      <td class="text-bold {{ ($demand->admin_approve == 1) ? 'text-success' : 'text-danger' }}">{{ ($demand->admin_approve == 1) ? 'Approved' : 'Not Approved' }}</td>
                       <td>{{ $demand->status}}</td>
                       <td class="text-right">
                         <form method="POST" action="{{ route('demand.destroy', ['id'=> $demand->id]) }}">

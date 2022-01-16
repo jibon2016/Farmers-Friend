@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Model\Demand;
+use App\Model\Order;
 use App\Model\Product;
 use App\Model\UserDocument;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use PDF;
 
 class OfferController extends Controller
@@ -65,6 +67,24 @@ class OfferController extends Controller
         $this->data['offer'] = Demand::where('id', $id)->first();
         // PDF::loadView()->save('invoice.pdf');
         return PDF::loadView('offer.invoice', $this->data)->download( $this->data['offer']->offer_no.'_invoice.pdf');
+    }
+
+    public function confirm(Request $request){
+        $frmdata = $request->all();
+        $lastorderId = Demand::orderBy('id', 'desc')->first()->offer_no;
+        // Get last 3 digits of last order id
+        $lastIncreament = substr($lastorderId, -3);
+        // Make a new order id with appending last increment + 1
+        $newOrderId =   date('dmY') . str_pad($lastIncreament + 1, 3, 0, STR_PAD_LEFT);
+        $orderID = $request->order_id;
+        $frmdata = $request->all();
+        $frmdata['offer_no'] = $newOrderId;
+        $frmdata['status'] = "Processing";
+        if ( $demand = Demand::create($frmdata) ) {
+            Order::where('id',$orderID)->update(['offer_no' => $newOrderId]);
+            return redirect()->route('home');
+        }
+
     }
 
 }

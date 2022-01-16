@@ -365,7 +365,7 @@ input[type="text"]::placeholder{
 .overlay {
   display: none;
   position: absolute;
-  top: 4%;
+  top: 5%;
   margin-right: 20px;
   color: #fff;
   padding: 87px 30px;

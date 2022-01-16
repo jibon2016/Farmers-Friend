@@ -39,7 +39,7 @@
               </table>  
               <div class=" mt-4 col-md-6 text-center" style="text-align: center;">
                 <a href="{{ route('nid.approve',['id'=>$user->id]) }}" class="btn btn-info">Approve</a>
-            </div>
+              </div>
             </div>
           </div>
         </div>

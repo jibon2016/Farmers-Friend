@@ -9,7 +9,6 @@
         <h1 class="mt-4">Orders</h1>
         </div>
         <div class=" mt-4 col-md-6 text-right" style="text-align: right;">
-            <a href="{{ route('products.create')}}" class="btn btn-info"><i class="fa fa-plus"></i> New Product</a>
         </div>
       </div>
       <div class="card mb-4">
@@ -21,7 +20,7 @@
                 <th>Order No.</th>
                 <th>User Name</th>
                 <th>Order Price</th>
-                <th>Quantity</th>
+                <th>Is Approved</th>
                 <th>Status</th>
                 <th class="text-right">Action</th>
             </tr>
@@ -34,8 +33,7 @@
                       <td>{{ $order->order_no }}</td>
                       <td>{{ optional($order->user)->name }}</td>
                       <td>{{ $order->amount }}</td>
-                      <td>{{ $order->quantity}}</td>
-                      <td>{{ $order->status}}</td>
+                      <td class="text-bold {{ ($order->admin_approve == 1) ? 'text-success' : 'text-danger' }}">{{ ($order->admin_approve == 1) ? 'Approved' : 'Not Approved' }}</td>                      <td>{{ $order->status}}</td>
                       <td class="text-right">
                         <form method="POST" action="{{ route('orders.destroy', ['id'=> $order->id]) }}">
                             @csrf

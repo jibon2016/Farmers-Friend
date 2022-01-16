@@ -37,10 +37,12 @@ Route::group(['prefix' => 'admin'], function(){
 
     Route::get('order',             [AdminOrderController::class, 'index'])->name('admin.orders');
     Route::get('order/{id}',        [AdminOrderController::class, 'show'])->name('orders.show');
+    Route::get('order/approve/{id}',[AdminOrderController::class, 'approve'])->name('order.approve');
     Route::delete('order/{id}',     [AdminOrderController::class, 'destroy'])->name('orders.destroy');
 
-    Route::get('demand',            [DemandController::class, 'index'])->name('admin.demand');
+    Route::get('demand',             [DemandController::class, 'index'])->name('admin.demand');
     Route::get('demand/{id}',        [DemandController::class, 'show'])->name('demand.show');
+    Route::get('demand/approve/{id}',[DemandController::class, 'approve'])->name('demand.approve');
     Route::delete('demand/{id}',     [DemandController::class, 'destroy'])->name('demand.destroy');
 
 
@@ -59,12 +61,14 @@ Route::group(['middleware' => 'auth'],function (){
 
     Route::get('product/{slug}',        [OrderController::class, 'index'])->name('product.order');
     Route::get('product/offer/{slug}',  [OfferController::class, 'index'])->name('product.offer');
+    Route::post('order/confirm',        [OfferController::class, 'confirm'])->name('order.confirm');
     Route::get('user/invoice/{id}',     [InvoiceController::class, 'index'])->name('user.invoice');
     Route::post('product/offer',        [OfferController::class, 'create'])->name('product.offer.create');
     Route::get('offer/invoice/{id}',    [OfferController::class, 'invoice'])->name('offer.invoice');
     Route::get('user/product/{id}',     [UserOrderOfferController::class,'userOrderOffer'])->name('user.order.offer');
     Route::get('user/offer/{id}',       [UserOrderOfferController::class,'showUserOffer'])->name('user.single.offer');
     Route::get('user/order/{id}',       [UserOrderOfferController::class,'showUserOrder'])->name('user.single.order');
+    Route::get('all/{id}/offer-order',  [UserOrderOfferController::class,'allOfferAndOrder'])->name('all.offer.order');
 
 
 
